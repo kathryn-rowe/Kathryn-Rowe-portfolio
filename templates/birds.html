@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row" align="right" id="landing-pg">
+        <a href="/">Home</a> • <a href="resume">Resume</a> • <a href="contact">Contact</a>
+    </div>
+
+    <div class="row" id="name">
+        Tell Me About the Birds
+    </div>
+
+    <div class="row" id="photo-row">
+        <div class="col-xs-12 col-md-2 col-lg-4">We're constantly surrounded by birds, and as they migrate, the frequency of sightings fluctuates. If we can better understand where birds spend most of their time, we can take steps to protect these key locations. "Tell Me About the Birds" is a visualization tool that allows users to explore data from the largest citizen-science dataset in the world (eBird) to better understand where birds have been sighted, when they are most abundant in various locations, and which other species may be present.</div>
+        <div class="col-xs-12 col-md-10 col-lg-8">
+            <img border="0" src="./static/images/data_page.jpg" alt="data-page" width="100%">
+        </div>
+    </div>
+
+    <div class="row" id="photo-row">
+        <div class="col-xs-12 col-md-2 col-lg-4">Screencast video (no audio)</div>
+        <div class="col-xs-12 col-md-10 col-lg-8">
+            <video width="100%" controls>
+            <source src="./static/images/kate_rowe_demo.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+            </video>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

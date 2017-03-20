@@ -33,7 +33,70 @@ def add_tests():
 def index():
     """Homepage"""
 
-    return render_template("homepage.html")
+    return render_template("landing_pg.html")
+
+
+@app.route('/resume')
+def resume():
+    """Resume page"""
+
+    return render_template("resume.html")
+
+
+@app.route('/contact')
+def contact():
+    """Contact page"""
+
+    return render_template("contact.html")
+
+
+@app.route('/sfk')
+def sfk():
+    """Sequoia ForestKeeper page"""
+
+    return render_template("sfk.html")
+
+
+@app.route('/melnea')
+def melnea():
+    """CRWA Melnea Cass Blvd page"""
+
+    return render_template("melnea.html")
+
+
+@app.route('/spawning_crwa')
+def spawning_crwa():
+    """Available spawning area in Charles River page"""
+
+    return render_template("spawning_crwa.html")
+
+
+@app.route('/patagonia')
+def patagonia():
+    """Patagonia page"""
+
+    return render_template("patagonia.html")
+
+
+@app.route('/klamath_river')
+def klamath_river():
+    """Klamath River Mussels page"""
+
+    return render_template("klamath.html")
+
+
+@app.route('/tir_salmon')
+def tir_salmon():
+    """Thermal Infered Imaging page"""
+
+    return render_template("TIR_salmon.html")
+
+
+@app.route('/birds')
+def birds():
+    """Tell me about the birds project page"""
+
+    return render_template("birds.html")
 
 
 if __name__ == "__main__":
