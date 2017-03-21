@@ -71,15 +71,15 @@ def spawning_crwa():
     return render_template("spawning_crwa.html")
 
 
-@app.route('/patagonia')
-def patagonia():
-    """Patagonia page"""
+@app.route('/ne_watershed')
+def ne_watershed():
+    """Patagonia project of New England Watersheds page"""
 
-    return render_template("patagonia.html")
+    return render_template("ne_watershed.html")
 
 
-@app.route('/klamath_river')
-def klamath_river():
+@app.route('/klamath')
+def klamath():
     """Klamath River Mussels page"""
 
     return render_template("klamath.html")
@@ -98,6 +98,12 @@ def birds():
 
     return render_template("birds.html")
 
+
+@app.route('/srf')
+def srf():
+    """Salmonid Restoration Federation (SRF) page"""
+
+    return render_template("srf.html")
 
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
