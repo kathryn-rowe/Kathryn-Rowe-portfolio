@@ -1,5 +1,4 @@
 "use strict"
-console.log('hello1');
 
 // Get the modal
 var modal = document.getElementById('myModal');
