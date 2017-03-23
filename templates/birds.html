@@ -18,7 +18,7 @@
     <div class="row" id="photo-row">
         <div class="col-xs-12 col-md-2 col-lg-4">We're constantly surrounded by birds, and as they migrate, the frequency of sightings fluctuates. If we can better understand where birds spend most of their time, we can take steps to protect these key locations. "Tell Me About the Birds" is a visualization tool that allows users to explore data from the largest citizen-science dataset in the world (eBird) to better understand where birds have been sighted, when they are most abundant in various locations, and which other species may be present.</div>
         <div class="col-xs-12 col-md-10 col-lg-8">
-            <img border="0" src="./static/images/data_page.jpg" alt="data-page" width="100%">
+            <img class="myImg" border="0" src="./static/images/data_page.jpg" alt="data-page" width="100%">
         </div>
     </div>
 
@@ -33,4 +33,14 @@
     </div>
 
 </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="./static/modal.js"></script>
 {% endblock %}
