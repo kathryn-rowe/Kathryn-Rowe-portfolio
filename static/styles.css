@@ -7,7 +7,7 @@ body {
     height: 98%;
     padding: 2% 0 2% 0;
     margin: 0px;
-    font: 200% 'Open Sans', sans-serif;
+    font: 150% 'Open Sans', sans-serif;
     line-height: 40px;
 }
 
@@ -16,7 +16,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #landing-pg {
-    font: 200% 'Cormorant Garamond', serif;
+    font: 125% 'Cormorant Garamond', serif;
     height: 100%;
     padding-right: 20px;
     border-bottom: 0.25px solid #ccc;
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #text-row {
     padding: 0px 20px 20px 20px;
-    font-size: 100%;
+    font-size: 85%;
 }
 
 #photo-row {
