@@ -1,4 +1,3 @@
-"""Bird abundance by observation."""
 import os
 
 from flask import (Flask,
