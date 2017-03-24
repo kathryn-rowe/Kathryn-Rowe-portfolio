@@ -1,20 +1,20 @@
 """Bird abundance by observation."""
+import os
 
 from jinja2 import StrictUndefined
 
 from flask import (Flask,
                    render_template,
-                   request, session,
-                   jsonify,
                    g)
 
-from flask_debugtoolbar import DebugToolbarExtension
+# from flask_debugtoolbar import DebugToolbarExtension
 
 import secret_key
 
 # from datetime import datetime
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "abcdef")
 
 JS_TESTING_MODE = False
 
@@ -105,6 +105,12 @@ def srf():
 
     return render_template("srf.html")
 
+
+@app.route("/error")
+def error():
+    raise Exception("Error!")
+
+
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension
@@ -112,10 +118,13 @@ if __name__ == "__main__":
     app.jinja_env.auto_reload = app.debug  # make sure templates, etc. are not cached in debug mode
 
     # Use the DebugToolbar
-    DebugToolbarExtension(app)
+    # DebugToolbarExtension(app)
 
     import sys
     if sys.argv[-1] == "jstest":
         JS_TESTING_MODE = True
 
-    app.run(host='0.0.0.0')
+    DEBUG = "NO_DEBUG" not in os.environ
+    PORT = int(os.environ.get("PORT", 5000))
+
+    app.run(host="0.0.0.0", port=PORT, debug=DEBUG)
