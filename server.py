@@ -1,7 +1,10 @@
 import os
 
 from flask import (Flask,
+                   redirect,
                    render_template)
+
+from model import User, connect_to_db, db
 
 # from flask_debugtoolbar import DebugToolbarExtension
 
@@ -26,6 +29,43 @@ def index():
     """Homepage"""
 
     return render_template("landing_pg.html")
+
+
+@app.route("/login", methods=["GET"])
+def show_login():
+
+    return render_template("sign_in.html")
+
+
+@app.route("/login", methods=["POST"])
+def login_process():
+
+    username = request.form.get("username")
+    password = request.form.get("password")
+
+    emails = User.query.filter(User.email == username).first()
+
+    if emails is None:
+        flash("No such email address. Please register")
+        return redirect('/register')
+
+    elif emails.password != password:
+        flash("Incorrect password.")
+        return redirect("/login")
+    else:
+        session["logged_in"] = username
+        user_id = emails.user_id
+        flash("Logged in.")
+        return redirect("/user_info/" + str(user_id))
+
+
+@app.route("/logout")
+def process_logout():
+    """Log user out."""
+
+    del session["logged_in"]
+    flash("Logged out.")
+    return redirect("/")
 
 
 @app.route('/resume')
