@@ -205,7 +205,7 @@ if __name__ == "__main__":
     DEBUG = "NO_DEBUG" not in os.environ
     PORT = int(os.environ.get("PORT", 5000))
 
-    connect_to_db(app, os.environ.get("DATABASE_URL"))
+    connect_to_db(app, os.environ.get("postgres://ujehytjehkednm:929e2ff298106000ad082a5ff0fc8bb988035b1ef141903229a08295d5e60b29@ec2-23-21-246-11.compute-1.amazonaws.com:5432/dfda3sr0flj3t0"))
 
     # app.run(host='0.0.0.0')
 
