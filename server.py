@@ -1,12 +1,16 @@
 import os
 
 from flask import (Flask,
+                   render_template,
                    redirect,
-                   render_template)
+                   request,
+                   flash,
+                   session)
 
-from model import User, connect_to_db, db
+from model import (User,
+                   connect_to_db)
 
-# from flask_debugtoolbar import DebugToolbarExtension
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "abcdef")
@@ -23,40 +27,39 @@ app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "abcdef")
 # def add_tests():
 #     g.jasmine_tests = JS_TESTING_MODE
 
-
-@app.route('/')
+@app.route("/", methods=["GET"])
 def index():
+
+    return render_template("sign-in.html")
+
+
+@app.route('/landing_pg')
+def show_landing_pg():
     """Homepage"""
 
     return render_template("landing_pg.html")
 
 
-@app.route("/login", methods=["GET"])
-def show_login():
-
-    return render_template("sign_in.html")
-
-
 @app.route("/login", methods=["POST"])
 def login_process():
 
-    username = request.form.get("username")
     password = request.form.get("password")
+    username = "guest"
 
-    emails = User.query.filter(User.email == username).first()
+    guest_password = User.query.filter(User.password == password).first()
 
-    if emails is None:
-        flash("No such email address. Please register")
-        return redirect('/register')
+    if password is None:
+        flash("Please enter a password.")
+        return redirect('/sign-in')
 
-    elif emails.password != password:
+    elif guest_password.password != password:
         flash("Incorrect password.")
         return redirect("/login")
+
     else:
         session["logged_in"] = username
-        user_id = emails.user_id
         flash("Logged in.")
-        return redirect("/user_info/" + str(user_id))
+        return redirect("/landing_pg")
 
 
 @app.route("/logout")
@@ -65,7 +68,7 @@ def process_logout():
 
     del session["logged_in"]
     flash("Logged out.")
-    return redirect("/")
+    return redirect("/login")
 
 
 @app.route('/resume')
@@ -146,17 +149,21 @@ def error():
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the
     # point that we invoke the DebugToolbarExtension
-    # app.debug = True
-    # app.jinja_env.auto_reload = app.debug  # make sure templates, etc. are not cached in debug mode
+    app.debug = True
+    app.jinja_env.auto_reload = app.debug  # make sure templates, etc. are not cached in debug mode
 
     # Use the DebugToolbar
-    # DebugToolbarExtension(app)
+    DebugToolbarExtension(app)
 
     # import sys
     # if sys.argv[-1] == "jstest":
     #     JS_TESTING_MODE = True
 
-    DEBUG = "NO_DEBUG" not in os.environ
-    PORT = int(os.environ.get("PORT", 5000))
+    # DEBUG = "NO_DEBUG" not in os.environ
+    # PORT = int(os.environ.get("PORT", 5000))
 
-    app.run(host="0.0.0.0", port=PORT, debug=DEBUG)
+    connect_to_db(app)
+
+    app.run(host='0.0.0.0')
+
+    # app.run(host="0.0.0.0", port=PORT, debug=DEBUG)

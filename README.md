@@ -30,6 +30,23 @@ $ pip install -r requirements.txt
 ```
 Gather necessary secret keys from Flask. Save to your secrets file. Link to server.py.
 
+Create database:
+
+```sh
+$ createdb users
+```
+```sh
+$ python -i model.py
+```
+```sh
+>>>db.create_all() 
+```
+```sh
+$ psql users
+```
+```sh
+users=# INSERT INTO users (password) VALUES (password);
+```
 ### Todos
 
  - Write more tests
