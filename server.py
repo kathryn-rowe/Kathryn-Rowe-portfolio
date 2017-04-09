@@ -205,7 +205,7 @@ if __name__ == "__main__":
     DEBUG = "NO_DEBUG" not in os.environ
     PORT = int(os.environ.get("PORT", 5000))
 
-    connect_to_db(app)
+    connect_to_db(app, os.environ.get("DATABASE_URL"))
 
     # app.run(host='0.0.0.0')
 
