@@ -15,6 +15,27 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
 }
 
+#username-id {
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+#submit {
+    height: 40px;
+    text-align: right;
+    padding-top: 0;
+}
+
+body > div:nth-child(1) > div {
+    color: black;
+    height: 40px;
+    padding-top: 1px;
+    background-color: #CCCCCC;
+    border: none;
+    opacity: .3;
+}
+
 #landing-pg {
     font: 125% 'Cormorant Garamond', serif;
     height: 100%;

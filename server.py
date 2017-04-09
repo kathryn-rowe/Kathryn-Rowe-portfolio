@@ -37,7 +37,11 @@ def index():
 def show_landing_pg():
     """Homepage"""
 
-    return render_template("landing_pg.html")
+    if "logged_in" in session:
+        return render_template("landing_pg.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route("/login", methods=["POST"])
@@ -46,20 +50,17 @@ def login_process():
     password = request.form.get("password")
     username = "guest"
 
-    guest_password = User.query.filter(User.password == password).first()
+    if password:
+        guest_password = User.query.filter(User.password == password).first()
 
-    if password is None:
-        flash("Please enter a password.")
-        return redirect('/sign-in')
+        if guest_password.password != password:
+            flash("Incorrect password.")
+            return redirect("/")
 
-    elif guest_password.password != password:
-        flash("Incorrect password.")
-        return redirect("/login")
-
-    else:
-        session["logged_in"] = username
-        flash("Logged in.")
-        return redirect("/landing_pg")
+        else:
+            session["logged_in"] = username
+            flash("Logged in.")
+            return redirect("/landing_pg")
 
 
 @app.route("/logout")
@@ -67,78 +68,120 @@ def process_logout():
     """Log user out."""
 
     del session["logged_in"]
+
     flash("Logged out.")
-    return redirect("/login")
+
+    return redirect("/")
 
 
 @app.route('/resume')
 def resume():
     """Resume page"""
 
-    return render_template("resume.html")
+    if "logged_in" in session:
+        return render_template("resume.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/contact')
 def contact():
     """Contact page"""
 
-    return render_template("contact.html")
+    if "logged_in" in session:
+        return render_template("contact.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/sfk')
 def sfk():
     """Sequoia ForestKeeper page"""
 
-    return render_template("sfk.html")
+    if "logged_in" in session:
+        return render_template("sfk.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/melnea')
 def melnea():
     """CRWA Melnea Cass Blvd page"""
 
-    return render_template("melnea.html")
+    if "logged_in" in session:
+        return render_template("melnea.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/spawning_crwa')
 def spawning_crwa():
     """Available spawning area in Charles River page"""
 
-    return render_template("spawning_crwa.html")
+    if "logged_in" in session:
+        return render_template("spawning_crwa.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/ne_watershed')
 def ne_watershed():
     """Patagonia project of New England Watersheds page"""
 
-    return render_template("ne_watershed.html")
+    if "logged_in" in session:
+        return render_template("ne_watershed.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/klamath')
 def klamath():
     """Klamath River Mussels page"""
 
-    return render_template("klamath.html")
+    if "logged_in" in session:
+        return render_template("klamath.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/tir_salmon')
 def tir_salmon():
     """Thermal Infered Imaging page"""
 
-    return render_template("TIR_salmon.html")
+    if "logged_in" in session:
+        return render_template("TIR_salmon.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/birds')
 def birds():
     """Tell me about the birds project page"""
 
-    return render_template("birds.html")
+    if "logged_in" in session:
+        return render_template("birds.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route('/srf')
 def srf():
     """Salmonid Restoration Federation (SRF) page"""
 
-    return render_template("srf.html")
+    if "logged_in" in session:
+        return render_template("srf.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
 
 
 @app.route("/error")
@@ -153,8 +196,8 @@ if __name__ == "__main__":
     app.jinja_env.auto_reload = app.debug  # make sure templates, etc. are not cached in debug mode
 
     # Use the DebugToolbar
-    DebugToolbarExtension(app)
-
+    # DebugToolbarExtension(app)
+    # DEBUG_TB_INTERCEPT_REDIRECTS = False
     # import sys
     # if sys.argv[-1] == "jstest":
     #     JS_TESTING_MODE = True
