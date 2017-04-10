@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row" id="landing-pg">
+        <div class="col-xs-12 col-md-6 col-lg-6" align="left">
+            Kathryn Rowe
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6" align="right">
+            <a href="/landing_pg">Home</a> • <a href="resume">Resume</a> • <a href="contact">Contact</a> • <a href="/logout">Log-out</a>
+        </div>
+    </div>
+
+    <div class="row" id="name">
+        Wedding Invitations
+    </div>
+
+    <div class="row" id="photo-row">
+        <div class="col-xs-12 col-md-6 col-lg-6">Customized Invitations<br>I designed Save the Date, Wedding Invitation, and RSVP wedding invitation sets for a few friends.<br><b>Tools:</b>Adobe Photoshop, Illustrator, Indesign
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <img class="myImg" border="0" src="./static/images/Kate_Gabe_Invites.jpg" alt="Kate-Gabe" width="100%">
+        </div>
+    </div>
+
+    <div class="row" id="photo-row">
+        <div class="col-xs-12 col-md-6 col-lg-6"></div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <img class="myImg" border="0" src="./static/images/Sarah_Scott_invites.jpg" alt="Sarah-Scott" width="100%">
+        </div>
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="./static/modal.js"></script>
+{% endblock %}
