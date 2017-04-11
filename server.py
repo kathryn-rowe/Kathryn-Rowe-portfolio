@@ -184,6 +184,39 @@ def srf():
         return redirect("/login")
 
 
+@app.route('/invites')
+def invites():
+    """Wedding Invitation work page"""
+
+    if "logged_in" in session:
+        return render_template("invites.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
+
+
+@app.route('/volunteer')
+def volunteer():
+    """volunteer work page"""
+
+    if "logged_in" in session:
+        return render_template("volunteer.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
+
+
+@app.route('/hobby')
+def hobby():
+    """hobby work page"""
+
+    if "logged_in" in session:
+        return render_template("hobby.html")
+    else:
+        flash("Incorrect password.")
+        return redirect("/login")
+
+
 @app.route("/error")
 def error():
     raise Exception("Error!")
