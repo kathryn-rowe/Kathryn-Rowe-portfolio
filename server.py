@@ -59,7 +59,7 @@ def login_process():
 
         else:
             session["logged_in"] = username
-            flash("Logged in.")
+            # flash("Logged in.")
             return redirect("/landing_pg")
 
 

@@ -1,12 +1,12 @@
 html {
-    background-color: #f0f0ef
+    background-color: #f0f0ef;
     height: 100%;
 }
 
 body {
     height: 98%;
     padding: 2% 0 2% 0;
-    margin: 0px;
+    margin: 0;
     font: 150% 'Open Sans', sans-serif;
     line-height: 40px;
 }
@@ -50,7 +50,7 @@ body > div:nth-child(1) > div {
 
 #homepage {
     border: 0.25px solid #ccc;
-    width: 75%;
+    width: 80%;
     box-shadow: 10px 10px 15px 6px #ccc;
     border-radius: 3px;
     background: url("./images/handmadepaper.png");
@@ -89,7 +89,7 @@ body > div:nth-child(1) > div {
 }
 
 #text-row {
-    padding: 0px 20px 20px 20px;
+    padding: 0 20px 20px 20px;
     font-size: 85%;
 }
 
