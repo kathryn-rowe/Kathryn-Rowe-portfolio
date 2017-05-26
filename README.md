@@ -4,7 +4,7 @@ Prior to Hackbright, Kate could be found tromping around the woods looking for b
 
 # Tech stack
 
-Frontend: Javascript, jQuery, AJAX, HTML5, CSS, Bootstrap
+Python, Flask, PostgreSQL, SQL Alchemy, Javascript, HTML5/CSS
 
 ### Setup/Installation
 
@@ -13,7 +13,7 @@ Install requirements to run locally; customize for own portfolio.
 Clone repository:
 
 ```sh
-$ git clone https://github.com/kathryn-rowe/Tell-Me-About-the-Birds.git
+$ git clone https://github.com/kathryn-rowe/Kathryn-Rowe-portfolio.git
 ```
 Create virtual environment:
 
@@ -50,7 +50,6 @@ users=# INSERT INTO users (password) VALUES (password);
 ### Todos
 
  - Write more tests
- - Add more work sections: invitations, spoon carving, etc.
 
 License
 ----
