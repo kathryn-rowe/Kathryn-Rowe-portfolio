@@ -30,7 +30,7 @@ $ pip install -r requirements.txt
 ```
 Gather necessary secret keys from Flask. Save to your secrets file. Link to server.py.
 
-Create database:
+Create database if you want to password protect your portfolio:
 
 ```sh
 $ createdb users
