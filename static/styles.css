@@ -36,6 +36,10 @@ body > div:nth-child(1) > div {
     opacity: .3;
 }
 
+#social {
+    width: 5%;
+}
+
 #landing-pg {
     font: 125% 'Cormorant Garamond', serif;
     height: 100%;
