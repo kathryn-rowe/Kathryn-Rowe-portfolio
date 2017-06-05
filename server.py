@@ -34,6 +34,13 @@ def resume():
     return render_template("resume.html")
 
 
+@app.route('/aboutme')
+def aboutme():
+    """About Me page"""
+
+    return render_template("aboutme.html")
+
+
 @app.route('/contact')
 def contact():
     """Contact page"""
@@ -116,6 +123,13 @@ def hobby():
     """hobby work page"""
 
     return render_template("hobby.html")
+
+
+@app.route('/impact')
+def impact():
+    """Impact Hackathon work page"""
+
+    return render_template("impact_hack.html")
 
 
 @app.route("/error")
