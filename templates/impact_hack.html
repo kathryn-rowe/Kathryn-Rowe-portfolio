@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row" id="landing-pg">
+        <div class="col-xs-12 col-md-6 col-lg-6" align="left">
+            Kathryn Rowe
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6" align="right">
+            <a href="/">Home</a> • <a href="aboutme">About</a> • <a href="resume">Resume</a> • <a href="contact">Contact</a>
+        </div>
+    </div>
+
+    <div class="row" id="name">
+        Winner, Best Overall<br>
+        Impact One-day Hackathon hosted by General Assembly.
+    </div>
+
+    <div class="row" id="photo-row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            
+            Problem Statement: How do we create a better connection between members of Congress and the general public?<br>
+
+            Team Members: Peter Travis, Zoe Shirah Gotch-Strain, Rocio, Kurt Bodden, Sam Colman, and Kathryn Rowe<br>
+
+            We created a central platform where Voters can inform themselves and express opinions about upcoming legislation. It is also a place where Representatives can directly see the desires of their constituents. After a bill is passed or defeated, voters can hold their representatives accountable and compare their views.<br>
+
+            Backend: Python, Flask, PostgreSQL<br>
+
+            Frontend: HTML5, CSS, Bootstrap<br>
+
+            Data and APIs: Data.gov, hoping to use ProPublica API, but could not get API key in one day.
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <img class="myImg" border="0" src="./static/images/capital.png" alt="capital" width="100%">
+        </div>
+    </div>
+
+    <div class="row" id="photo-row">
+        <div class="col-xs-12 col-md-4 col-lg-4">
+            <img class="myImg" border="0" src="./static/images/voting_page.jpg" alt="voting_page" width="100%">
+        </div>
+        <div class="col-xs-12 col-md-4 col-lg-4">
+            <img class="myImg" border="0" src="./static/images/voting_page3.jpg" alt="voting_page3" width="100%">
+        </div>
+        <div class="col-xs-12 col-md-4 col-lg-4">
+            <img class="myImg" border="0" src="./static/images/results.jpg" alt="results" width="100%">
+        </div>
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="./static/modal.js"></script>
+{% endblock %}
