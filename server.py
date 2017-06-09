@@ -132,6 +132,19 @@ def impact():
     return render_template("impact_hack.html")
 
 
+@app.route('/coding')
+def coding():
+    """Different coding projects page"""
+
+    return render_template("coding.html")
+
+
+@app.route('/aws_demo')
+def aws_demo():
+    """AWS Deployment blog post"""
+
+    return render_template("aws_demo.html")
+
 @app.route("/error")
 def error():
     raise Exception("Error!")

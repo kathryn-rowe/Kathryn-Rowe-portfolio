@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row" id="landing-pg">
+        <div class="col-xs-12 col-md-6 col-lg-6" align="left">
+            Kathryn Rowe
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6" align="right">
+            <a href="/">Home</a> • <a href="aboutme">About</a> • <a href="resume">Resume</a> • <a href="contact">Contact</a>
+        </div>
+    </div>
+
+    <div class="row" id="name">
+        Blogs about different coding projects<br>
+    </div>
+
+    <div class="row" id="photo-row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+            <a href="aws_demo">How to deploy a Python-Flask application to AWS</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="./static/modal.js"></script>
+{% endblock %}

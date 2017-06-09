@@ -15,6 +15,22 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
 }
 
+h3 {
+    color: #2582a1;
+}
+
+.code {
+    background-color: #f5f5f5;
+    font-family: 'Cutive Mono', monospace;
+    margin: 20px;
+    padding: 10px;
+}
+
+.note {
+    margin: 20px;
+    padding: 10px;
+}
+
 #username-id {
     height: 30px;
     margin-bottom: 10px;
