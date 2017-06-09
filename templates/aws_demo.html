@@ -21,16 +21,16 @@
 
         <p>The process of deploying my project, <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a>, to Amazon Web Services was much trickier than expected. I didn’t understand the full scope of what “deploying to AWS” meant until someone at AWS pop-up loft mentioned building a web server.<br><br>
 
+        A what?<b><b>
+
         I’m fortunate to live in the Bay Area which lends itself to many tech-related opportunities and resources. When I was overwhelmed by AWS’s use of acronyms, I decided to visit the AWS pop-up lofts. SO thankful I did. The crew patiently answered my questions and provided excellent advice. THANK YOU!<br><br>
 
-        There are so many different options to deploying “stuff” on AWS, and I definitely cannot explain all the options.<br><br>
-        
-        A what?</p>
+        There are so many different options to deploying “stuff” on AWS, and I definitely cannot explain all the options (Figure 1).</p>
         
         <img class="myImg" border="0" src="./static/images/aws_products.jpg" alt="amazon_products" width="40%"><br>
         Figure 1.<br><br>
 
-        <p>I chose EC2 and RDS because 1. I had a database (RDS), 2. I wanted to learn about AWS, not just deploy something quickly (eliminates Elastic Beanstalk), and 3. I wanted to be able to scale the project up. Tell Me About the Birds currently has only one year of data due the limitations of my personal computer. Now that I have an online database, I’d like to expand my project.<br><br>
+        <p>I chose EC2 and RDS because 1. I had a database (RDS), 2. I wanted to learn about AWS, not just deploy something quickly (eliminates Elastic Beanstalk), and 3. I wanted to be able to scale the project up. <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a> currently has only one year of data due the limitations of my personal computer. Now that I have an online database, I’d like to expand my project.<br><br>
 
         <h3>Getting started</h3>
 
@@ -71,12 +71,12 @@
 
         <h3>Setting-up a RDS instance</h3>
 
-        <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped tremendously (ugh, I hate that word now). I’d follow along with their instructions (fyi I chose all “free tier” options) until your reach this page:</p><br><br>
+        <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped tremendously (ugh, I hate that word now). I’d follow along with their instructions (fyi I chose all “free tier” options) until your reach this page (Figure 2):</p><br><br>
 
         <img class="myImg" border="0" src="./static/images/rds_db_instance.jpg" alt="rds_db_instance" width="40%"><br>
         Figure 2.<br><br>
         
-        <p>Once I had this set-up, I was unclear how to get the database on my computer up into this instance. Thank you, again, AWS pop-up lab help desk for clarifying that I needed to do a pgdump.<br>
+        <p>Once I had this set-up, I was unclear how to get the database on my computer up into this instance. Thank you, again, AWS pop-up lab help desk for clarifying that I needed to do a pgdump.<br><br>
 
         From your console, navigate to where you store you database and enter the following, substituting ebird_CA_data for the name of your database.</p>
 
@@ -112,7 +112,7 @@
 
         <p>Connect via model.py<br><br>
 
-        If you visit <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds/blob/master/model.py">my github page</a> again and navigate to model.py, I have a postgres db connection at the bottom:</p><br>
+        If you visit <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds/blob/master/model.py">my github page</a> again and navigate to model.py, I have a postgres db connection at the bottom (Figure 3):</p><br>
 
         <img class="myImg" border="0" src="./static/images/github_db_connection.jpg" alt="github_db_connection" width="40%"><br>
         Figure 3. <br><br>
@@ -134,9 +134,9 @@
         Apache.<br><br>
         This was a hard concept for me to grasp without talking with the great guys at AWS: you can’t just put python files on Ubuntu and expect them to run. You have to set-up a web server and configure everything correctly.<br><br>
         For the Ubuntu-Apache set-up, I relied heavily on the <a href="http://amunategui.github.io/idea-to-pitch/">blog</a> I mentioned earlier and <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps">DigitalOcean’s docs</a>, which I found to be very helpful.<br><br>
-        After logging into my Ubuntu instance via Putty (I run Windows), here’s my mashup of what they did:</p><br>
+        After logging into my Ubuntu instance via Putty (I run Windows), here’s my mashup of what they did (Figure 5):</p><br>
         
-        <img class="myImg" border="0" src="./static/images/Ubuntu_basic.jpg" alt="Ubuntu_basic" width="40%"><br>
+        <img class="myImg" border="0" src="./static/images/ubuntu_basic.jpg" alt="Ubuntu_basic" width="40%"><br>
         Figure 5.<br><br>
 
         <div class="code">
