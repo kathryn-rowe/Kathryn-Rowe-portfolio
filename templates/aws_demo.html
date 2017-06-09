@@ -19,39 +19,33 @@
 
         <i>Tags: Python, Flask, PostgreSQL, Ubuntu, Apache, EC2, RDS</i><br><br>
 
-        <p>The process of deploying my project, <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a>, to Amazon Web Services was much trickier than expected. I didn’t understand the full scope of what “deploying to AWS” meant until someone at AWS pop-up loft mentioned building a web server.<br>
-        A what?<br>
+        <p>The process of deploying my project, <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a>, to Amazon Web Services was much trickier than expected. I didn’t understand the full scope of what “deploying to AWS” meant until someone at AWS pop-up loft mentioned building a web server.<br><br>
 
-        Here are the steps I took to move the birds from my computer to the internet.<br><br>
+        I’m fortunate to live in the Bay Area which lends itself to many tech-related opportunities and resources. When I was overwhelmed by AWS’s use of acronyms, I decided to visit the AWS pop-up lofts. SO thankful I did. The crew patiently answered my questions and provided excellent advice. THANK YOU!<br><br>
 
-        <h3>First, acknowledgements and thank you’s</h3>
-
-        Meghan (fellow Hackbright alumnae) – <br>
-        A few weeks ago you recommended that I deploy my project. This was great advice and I’m so thankful for your support and suggestions! Not only can I now showcase what I developed in a short four weeks, I now understand web servers and hosting.<br>
-        The helpful people at AWS pop-up lofts –<br>
-        I’m fortunate to live in the Bay Area which lends itself to many tech-related opportunities and resources. When I was overwhelmed by AWS’s use of acronyms, I decided to visit the AWS pop-up lofts. SO thankful I did. The crew was incredibly helpful and patiently explained how their systems worked. THANK YOU!<br>
-        There are so many different options to deploying “stuff” on AWS, and I definitely cannot explain all the options. </p>
+        There are so many different options to deploying “stuff” on AWS, and I definitely cannot explain all the options.<br><br>
         
-        <img class="myImg" border="0" src="./static/images/aws_products.jpg" alt="amazon_products" width="25%"><br>
-        Figure 1.<br>
+        A what?</p>
+        
+        <img class="myImg" border="0" src="./static/images/aws_products.jpg" alt="amazon_products" width="40%"><br>
+        Figure 1.<br><br>
 
         <p>I chose EC2 and RDS because 1. I had a database (RDS), 2. I wanted to learn about AWS, not just deploy something quickly (eliminates Elastic Beanstalk), and 3. I wanted to be able to scale the project up. Tell Me About the Birds currently has only one year of data due the limitations of my personal computer. Now that I have an online database, I’d like to expand my project.<br><br>
 
         <h3>Getting started</h3>
 
-        Background about my project:<br>
-        It’s a Python – Flask app that queries data in a PostgreSQL database using SQLAlchemy. You can check it out on <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds">GitHub</a>, but this is what I ultimately put into my web server:<br></p>
+        My project is a Python – Flask app that queries data in a PostgreSQL database using SQLAlchemy. You can check it out on <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds">GitHub</a>, but here is the line-up:<br></p>
 
         <div class="code">
         server.py<br>
         model.py<br>
         requirements.txt<br>
         secret_key.py<br>
-        templates<br>
+        templates/<br>
         ------base.html<br>
         ------homepage.html<br>
         ------map.html<br>
-        static<br>
+        static/<br>
         ------bird-picture.js<br>
         ------D3_line_chart.js<br>
         ------get_species.js<br>
@@ -59,7 +53,7 @@
         ------map.js<br>
         ------reload_county.js<br>
         ------styles.css<br>
-        ------images<br>
+        ------images/<br>
         ----------arrow_submit-01.png<br>
         ----------bird_outline.png<br>
         ----------sparrow.jpg<br>
@@ -71,31 +65,31 @@
 
         <h3>Setting-up an EC2 instance</h3>
 
-        Check out this <a href="http://amunategui.github.io/idea-to-pitch/">blog</a> on how to set-up an EC2. It’s fantastic and has a YouTube video. I installed Ubuntu 16.04 and chose the “free tier” options.<br>
+        Check out this <a href="http://amunategui.github.io/idea-to-pitch/">blog</a> on how to set-up an EC2. It’s fantastic and has a YouTube video. I installed Ubuntu 16.04 and chose the “free tier” options.<br><br>
 
         I’ll pick up again once you hit the <i>Installing Apache & Flask on EC2.</i><br><br>
 
         <h3>Setting-up a RDS instance</h3>
 
-        <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped tremendously (ugh, I hate that word now). I’d follow along to their instructions (fyi I chose all “free tier” options) until your reach this page:</p><br>
+        <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped tremendously (ugh, I hate that word now). I’d follow along with their instructions (fyi I chose all “free tier” options) until your reach this page:</p><br><br>
 
-        <img class="myImg" border="0" src="./static/images/rds_db_instance.jpg" alt="rds_db_instance" width="25%"><br>
-        Figure 2.<br>
+        <img class="myImg" border="0" src="./static/images/rds_db_instance.jpg" alt="rds_db_instance" width="40%"><br>
+        Figure 2.<br><br>
         
-        <p>Once I had this set-up, it was really confusing how to get the database on my computer up into this instance. Thank you, again, AWS pop-up lab help desk for the clarification: <b>pg dump</b>.<br>
+        <p>Once I had this set-up, I was unclear how to get the database on my computer up into this instance. Thank you, again, AWS pop-up lab help desk for clarifying that I needed to do a pgdump.<br>
 
-        From your console, navigate to where you store you database and enter the following, substituting dbird_CA_data for the name of your database.</p>
+        From your console, navigate to where you store you database and enter the following, substituting ebird_CA_data for the name of your database.</p>
 
         <div class="code">
-        $ pg_dump ebird_CA_data > ebird_CA_data.sql
+        $ <b>pg_dump ebird_CA_data > ebird_CA_data.sql</b>
         </div>
 
-        <p>After that, you’ll want to “put it on the online.” Pull up your DB instance information like in Figure 2. Note the endpoint, port number, username, and DB name.<br>
+        <p>After that, you’ll want to “put it on the online.” Pull up your DB instance information like in Figure 2. Note the endpoint, port number, username, and DB name.<br><br>
 
         Manipulate this command:</p>
 
         <div class="code">
-        $ psql -f [name of sql file you created in the dump] --host [endpoint] --port [the port number] --username [Username] --password [your db password] --dbname [DB Name]
+        $ <b>psql -f [name of sql file you created in the dump] --host [endpoint] --port [the port number] --username [Username] --password [your db password] --dbname [DB Name]</b>
         </div>
 
         <p>So it looks like this with your information:</p>
@@ -105,24 +99,23 @@
         </div>
 
         <div class="code">
-        $ psql -f ebird_CA_data.sql --host the-birds.cbec8qxdlxnj.us-west-1.rds.amazonaws.com --port 5432 --username kate_admin --password INSERT PASSWORD --dbname the_birds
+        $ <b>psql -f ebird_CA_data.sql --host the-birds.cbec8qxdlxnj.us-west-1.rds.amazonaws.com --port 5432 --username kate_admin --password INSERT PASSWORD --dbname the_birds</b>
         </div>
 
-        <p>After running for most of the night, the command line stated SELECT TABLE a few time and that was it. No ‘success’ or ‘congrats on your first upload!’ like I thought it should. But there wasn’t an error message, so it must have worked, correct? Hard to say. I’m sure the AWS console gives you some hint that there is data in there, but I couldn’t interpret it. I found two ways to see if there is data in there:<br>
-        
-        1. open the database directly from the console and 2. Connect your local app to the remote database (also a great debugging tip for when you’re deploying your project).<br>
+        <p>After running for most of the night, the command line stated SELECT TABLE a few time and that was it. No ‘success’ or ‘congrats on your first upload!’ like I thought it should. But there wasn’t an error message, so it must have worked, correct? Hard to say. I’m sure the AWS console gives you some hint that there is data in there, but I couldn’t interpret it. I found two ways to see if there is data in there: open the database directly from the console and/or connect your local app to the remote database (also a great debugging tip for when you’re deploying your project).<br><br>
 
         Connect via the console<br>
         
         <div class="code">
-        (env) vagrant@vagrant:~/src/project$ psql --host=the-birds.cbec8qxdlxnj.us-west-1.rds.amazonaws.com --port=5432 --username=kate_admin --password --dbname=the_birds the-birds.cbec8qxdlxnj.us-west-1.rds.amazonaws.com
+        (env) vagrant@vagrant:~/src/project$ <b>psql --host=the-birds.cbec8qxdlxnj.us-west-1.rds.amazonaws.com --port=5432 --username=kate_admin --password --dbname=the_birds the-birds.cbec8qxdlxnj.us-west-1.rds.amazonaws.com</b>
         </div>
 
-        <p>Connect via model.py<br>
+        <p>Connect via model.py<br><br>
 
         If you visit <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds/blob/master/model.py">my github page</a> again and navigate to model.py, I have a postgres db connection at the bottom:</p><br>
 
-        <img class="myImg" border="0" src="./static/images/github_db_connection.jpg" alt="github_db_connection" width="25%">
+        <img class="myImg" border="0" src="./static/images/github_db_connection.jpg" alt="github_db_connection" width="40%"><br>
+        Figure 3. <br><br>
 
         <p>See how I commented out the connection from my local database, and then add the connection to the remote database (and no, the-password is not my password):</p>
 
@@ -133,27 +126,29 @@
 
         <p>From my console, I could then run my app locally like I always have and it should connect to the remote database, right? (&#10043; I run my app locally on a vagrant Ubuntu machine)</p><br>
 
-        <img class="myImg" border="0" src="./static/images/locally_run_vagrant.jpg" alt="locally_run_vagrant" width="25%">
+        <img class="myImg" border="0" src="./static/images/locally_run_vagrant.jpg" alt="locally_run_vagrant" width="40%"><br><br>
+        Figure 4.<br><br>
 
-        <p>Yessssss it works and queries my database in the clouds (hard to tell with all those deprecated warnings).<br>
-        Ok, so now I have a RDS instance with data and an EC2 instance without data. What now?<br>
-        Apache.<br>
-        This was a hard concept for me to grasp without talking with the great guys at AWS: you can’t just put python files on Ubuntu and expect them to run. You have to set-up a web server and configure everything correctly.<br>
-        For the Ubuntu-Apache set-up, I relied heavily on the <a href="http://amunategui.github.io/idea-to-pitch/">blog</a> I mentioned earlier and <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps">DigitalOcean’s docs</a>, which I found to be very helpful.<br>
+        <p>Yessssss it works and queries my database in the clouds (hard to tell with all those deprecated warnings).<br><br>
+        Ok, so now I have a RDS instance with data and an EC2 instance without data. What now?<br><br>
+        Apache.<br><br>
+        This was a hard concept for me to grasp without talking with the great guys at AWS: you can’t just put python files on Ubuntu and expect them to run. You have to set-up a web server and configure everything correctly.<br><br>
+        For the Ubuntu-Apache set-up, I relied heavily on the <a href="http://amunategui.github.io/idea-to-pitch/">blog</a> I mentioned earlier and <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps">DigitalOcean’s docs</a>, which I found to be very helpful.<br><br>
         After logging into my Ubuntu instance via Putty (I run Windows), here’s my mashup of what they did:</p><br>
         
-        <img class="myImg" border="0" src="./static/images/Ubuntu_basic.jpg" alt="Ubuntu_basic" width="25%">
+        <img class="myImg" border="0" src="./static/images/Ubuntu_basic.jpg" alt="Ubuntu_basic" width="40%"><br>
+        Figure 5.<br><br>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:~$ sudo apt-get update<br>
-        ubuntu@ip-10-0-0-160:~$ sudo apt-get install apache2<br>
-        ubuntu@ip-10-0-0-160:~$ sudo apt-get install libapache2-mod-wsgi python-dev<br>
-        ubuntu@ip-10-0-0-160:~$ sudo a2enmod wsgi <br>
-        ubuntu@ip-10-0-0-160:~$ cd /var/www <br>
-        ubuntu@ip-10-0-0-160:/var/www$ sudo mkdir FlaskApp<br>
-        ubuntu@ip-10-0-0-160:/var/www$ cd FlaskApp<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp$ sudo mkdir TellMeAboutTheBirds<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp$ cd TellMeAboutTheBirds<br>
+        ubuntu@ip-10-0-0-160:~$ <b>sudo apt-get update</b><br>
+        ubuntu@ip-10-0-0-160:~$ <b>sudo apt-get install apache2</b><br>
+        ubuntu@ip-10-0-0-160:~$ <b>sudo apt-get install libapache2-mod-wsgi python-dev</b><br>
+        ubuntu@ip-10-0-0-160:~$ <b>sudo a2enmod wsgi</b><br>
+        ubuntu@ip-10-0-0-160:~$ <b>cd /var/www </b><br>
+        ubuntu@ip-10-0-0-160:/var/www$ <b>sudo mkdir FlaskApp</b><br>
+        ubuntu@ip-10-0-0-160:/var/www$ <b>cd FlaskApp</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp$ <b>sudo mkdir TellMeAboutTheBirds</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp$ <b>cd TellMeAboutTheBirds</b><br>
         </div>
 
         <div class="note">
@@ -161,20 +156,20 @@
         </div>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo mkdir static templates<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo nano server.py
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo mkdir static templates</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano server.py</b>
         </div>
 
         <p>Copy and paste your server.py contents from your computer’s editor to the file opened by nano (and yes, nano is awful). Crtl-X to save and exit.</p><br>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo nano requirements.txt
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano requirements.txt</b>
         </div>
 
         <p>Copy and paste your requirements.txt contents. Crtl-X to save and exit.<br>
 
         <div class="code">    
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo nano secret_key.py
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano secret_key.py</b>
         </div>
 
         <p>Copy and paste your secret_key.py contents. Crtl-X to save and exit.</p>
@@ -184,35 +179,35 @@
         </div>
 
         <div class="code">
-        |----FlaskApp<br>
-        |---------TellMeAboutTheBirds<br>
+        |----FlaskApp/<br>
+        |---------TellMeAboutTheBirds/<br>
         |--------------server.py<br>
         |--------------secret_key.py<br>
         |--------------requirements.txt<br>
-        |--------------static<br>
-        |--------------templates<br>
+        |--------------static/<br>
+        |--------------templates/<br>
         </div>
 
         <p>Now to install pip, start a virtual environment, and get all the requirements.</p>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo apt-get install python-pip <br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo pip install virtualenv <br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo virtualenv venv<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ source venv/bin/activate <br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo apt-get install python-pip</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo pip install virtualenv</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo virtualenv venv</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>source venv/bin/activate</b><br>
         </div>
 
         <p>When I was working my my project locally, I used $pip freeze > requirements.txt to save a record of everything it took to get the project up and running. Here I’m installing those requirements in one swift move.</p>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo pip install –r requirements.txt <br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ deactivate
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo pip install –r requirements.txt</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>deactivate</b>
         </div>
 
         <p>Editing the conf file:</p>
         
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo nano /etc/apache2/sites-available/TellMeAboutTheBirds.conf
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano /etc/apache2/sites-available/TellMeAboutTheBirds.conf</b>
         </div>
 
         <div class="note">
@@ -222,37 +217,39 @@
         <p>Here is what my config file looked like:</p>
 
         <div class="code">
-        &lt;VirtualHost *:80&gt;<br>
-                ServerName 52.25.54.241<br>
-                # ServerName tellmeaboutthebirds.com<br>
-                # ServerAlias www.tellmeaboutthebirds.com<br>
-                ServerAdmin kjrowe06@gmail.com<br>
-                WSGIScriptAlias / /var/www/FlaskApps/FlaskApps.wsgi<br>
-                &lt;Directory /var/www/FlaskApps/ TellMeAboutTheBirds /&gt;<br>
-                            Order allow,deny<br>
-                            Allow from all<br>
+            <pre>
+            &lt;VirtualHost *:80&gt;<br>
+                    ServerName 52.25.54.241<br>
+                    # ServerName tellmeaboutthebirds.com<br>
+                    # ServerAlias www.tellmeaboutthebirds.com<br>
+                    ServerAdmin kjrowe06@gmail.com<br>
+                    WSGIScriptAlias / /var/www/FlaskApps/FlaskApps.wsgi<br>
+                    &lt;Directory /var/www/FlaskApps/ TellMeAboutTheBirds /&gt;<br>
+                                Order allow,deny<br>
+                                Allow from all<br>
+                        &lt;/Directory&gt;<br>
+                    &lt;Directory /var/www/FlaskApps/TellMeAboutTheBirds/static/&gt;<br>
+                                Order allow,deny<br>
+                                Allow from all<br>
                     &lt;/Directory&gt;<br>
-                &lt;Directory /var/www/FlaskApps/TellMeAboutTheBirds/static/&gt;<br>
-                            Order allow,deny<br>
-                            Allow from all<br>
-                &lt;/Directory&gt;<br>
-                ErrorLog ${APACHE_LOG_DIR}/error.log<br>
-                LogLevel warn<br>
-                CustomLog ${APACHE_LOG_DIR}/access.log combined<br>
-        &lt;/VirtualHost&gt;<br>
+                    ErrorLog ${APACHE_LOG_DIR}/error.log<br>
+                    LogLevel warn<br>
+                    CustomLog ${APACHE_LOG_DIR}/access.log combined<br>
+            &lt;/VirtualHost&gt;<br>
+            </pre>
         </div>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo a2enmod wsgi<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo apachectl restart<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo a2ensite TellMeAboutTheBirds<br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo a2enmod wsgi</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo apachectl restart</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo a2ensite TellMeAboutTheBirds</b><br>
         </div>
 
         <p>I used these two commands to restart/reload after changes I made:</p>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo service apache2 restart<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo /etc/init.d/apache2 reload<br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo service apache2 restart</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo /etc/init.d/apache2 reload</b><br>
         </div>
 
         <p>Creating the wsgi file</p>
@@ -262,62 +259,70 @@
         </div>
 
         <div class="code">        
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo nano /var/www/FlaskApps/FlaskApps.wsgi
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano /var/www/FlaskApps/FlaskApps.wsgi</b>
         </div>
 
         <div class="code">
-        #!/usr/bin/python<br>
-        import sys<br>
-        import logging<br>
-        logging.basicConfig(stream=sys.stderr)<br>
-        sys.path.insert(0,"/var/www/FlaskApp/TellMeAboutTheBirds/")<br><br>
+            <pre>
+            #!/usr/bin/python<br>
+            import sys<br>
+            import logging<br>
+            logging.basicConfig(stream=sys.stderr)<br>
+            sys.path.insert(0,"/var/www/FlaskApp/TellMeAboutTheBirds/")<br>
 
-        from server import app as application<br>
-        application.secret_key = 'AJLDKBJOIMVALSDKFASDOIFJDBODI'<br>
+            from server import app as application<br>
+            application.secret_key = 'randomSecretkeeey'
+            </pre>
         </div>
 
         <p>And again:</p>
 
         <div class="code">        
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo service apache2 restart<br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo /etc/init.d/apache2 reload
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo service apache2 restart</b><br>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo /etc/init.d/apache2 reload</b>
         </div>
 
         <p>Ok, everything should be set-up now. Try typing the public IP in a browser and see what happens.<br>
 
+        <h3>Debugging Tips</h3>
         If you get errors, nothing shows up, or it’s just a generic Apache website, try these debugging tips:<br>
         <ul>
-        <li>Open the error log and see what it says:</li>
+            <li>Open the error log and see what it says:</li>
 
-            <div class="code">
-            ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ sudo nano /var/log/apache2/error.log
-            </div>
+                <div class="code">
+                ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano /var/log/apache2/error.log</b>
+                </div>
 
-        <li>In your browser, right click and select “Inspect.” See if there are errors there.</li>
-        <li>Go back to the server.py file found here: /var/www/FlaskApp/TellMeAboutTheBirds/</li>
-        <li>Clear everything and copy-paste this:</li>
+            <li>In your browser, right click and select “Inspect.” Watch for errors as your run your process.</li>
+            <li>Go back to the server.py file found here: /var/www/FlaskApp/TellMeAboutTheBirds/</li>
+            <li>Clear everything and copy-paste this:<br>
 
-        <div class="code">
-        from flask import Flask<br>
-        app=Flask(__name__)<br><br>
+                <div class="code">
+                    <pre>
+                    from flask import Flask<br>
+                    app=Flask(__name__)<br><br>
 
-        @app.route('/')<br>
-        def home():<br>
-            return  "This is from Flask!!!"<br><br>
+                    @app.route('/')<br>
+                    def home():<br>
+                        return  "This is from Flask!!!"<br><br>
 
-        if __name__ == "__main__":<br>
-            app.run()<br>
-        </div>
+                    if __name__ == "__main__":<br>
+                        app.run()
+                    </pre>
+                </div>
 
-        Save, restart and reload. When you refresh your browser, do you see any changes? If you see “This is from Flask!!!”, it’s working. Slowly start adding material back into the server.py file.<br>
+        Save, restart and reload. When you refresh your browser, do you see any changes? If you see “This is from Flask!!!”, it’s working. Slowly start adding material back into the server.py file.<br><br>  
+            </li>
+        </ul>
 
-        And that should be it!<br>
+        And that should be it!<br><br>
 
-        I also went through the process of setting up an Elastic IP and then a domain name through AWS. Just remember to change the config file any time you change the IP address or domain name!<br>
+        I also went through the process of setting up an Elastic IP and then a domain name through AWS. Just remember to change the config file any time you change the IP address or domain name!<br><br>
 
-        I’m open to comments and/or suggestions! kjrowe06@gmail.com<br>
+        I’m open to comments and/or suggestions! kjrowe06@gmail.com<br><br>
 
         Thanks and good luck!
+
     </div>
 
 </div>

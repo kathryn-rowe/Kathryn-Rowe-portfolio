@@ -145,6 +145,7 @@ def aws_demo():
 
     return render_template("aws_demo.html")
 
+
 @app.route("/error")
 def error():
     raise Exception("Error!")
