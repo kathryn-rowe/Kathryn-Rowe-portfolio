@@ -146,6 +146,13 @@ def aws_demo():
     return render_template("aws_demo.html")
 
 
+@app.route('/hb_app')
+def hb_app():
+    """Hackbright Application essay; writting demo"""
+
+    return render_template("hb_app.html")
+
+
 @app.route("/error")
 def error():
     raise Exception("Error!")

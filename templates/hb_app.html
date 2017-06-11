@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+
+    <div class="row" id="landing-pg">
+        <div class="col-xs-12 col-md-6 col-lg-6" align="left">
+            Kathryn Rowe
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-6" align="right">
+            <a href="/">Home</a> • <a href="aboutme">About</a> • <a href="resume">Resume</a> • <a href="contact">Contact</a>
+        </div>
+    </div>
+
+    <div class="row" id="name">
+        My Journey as a Bird-nerd, a Hackbright Application Essay<br>
+    </div>
+
+    <div class="row" id="photo-row">
+
+        <h3>Share a particular piece of expertise that you have in detail.<br>
+        You can write about something that is educational, professional, or recreational. This question exists so we can learn how you describe something in detail. The topic you choose is not important to us but rather, the method of delivery. For example, instead of saying I'm an expert at yoga, take some time to explain to us "exactly" what makes the perfect downward dog, but please...no recipes! (500 words or less)</h3>
+
+        <p>
+        I began birding eight years ago when I accepted a position to study the effects of off-highway vehicles on the Northern Spotted Owl. The position required an ability to quickly determine owl species and I soon learned that I enjoyed this process. <br><br>
+ 
+        When I decide to go birding, I select a location using eBird. This online resource hosts bird location information generated from user input. I use the website’s interactive map to see what other “eBirders” have recorded and the species I want to find. Unlike sportfishermen, birders like to share their sightings and excitement about their sightings. I’ve found myself huddled with 20+ people waiting to see a rare bird.<br><br>
+         
+        I prepare for a bird trip by donning the typical dorky birding uniform: wide-brim hat, fast-drying pants, sun protection shirt, and oversized binoculars. <br><br>
+         
+        When I arrive at my destination (usually sometime around sunrise), I begin focusing on my surroundings. I consider the habitat type and narrow down which bird species I could expect to see. If I’m in sagebrush habitat, I know I probably won’t see a penguin. Rare birds do happen, so I never entirely eliminate anything!<br><br>
+         
+        Since birds are sometimes difficult to see, identifying them by vocalization may be the only option. Learning a species’ signature call requires memorization of the tone, pitch, and pattern. Like most birders, I use helpful mnemonics. The Olive-sided Flycatcher sings “Quick! Three Beers.”<br><br>
+         
+        When I first try to identify a bird by sight, I watch its movements without binoculars. Birds display different foraging behaviors and recognizing these patterns helps to identify the species. Chestnut-backed Chickadees hang from conifers, Fox Sparrows kick-up duff under bushes, and the wings of Turkey Vultures form a “V” as they spiral on warm updrafts overhead.<br><br>
+         
+        After noting distinctive behavioral patterns, I use binoculars to get a detailed visual of the size, shape, and color. Most people can distinguish between a 200-pound ostrich and 2.5-gram hummingbird. I use finer details such as wing bars, tail forks, and eye rings to key-out a species. These markings help differentiate between closely related species, such as Ruby- and Golden-crowned Kinglets.<br><br>
+         
+        To a casual observer, I appear to engaged in a dull hobby that involves staring intently at a small brown bird. What they don't see is that I'm engaged in wildlife detective work and that the subtle markings, behavioral ticks, and calls of this otherwise nondescript bird reveal it to be a visitor from Siberia that has been blown off of its migration route to land in our local park. I find satisfaction in this deduction, even if I look a little odd to non-birders in the process.<br><br>
+         
+        I record my findings and upload this information to eBird. If I’m lucky, I’ll enter a rare bird sighting and immediately engage with the local birding community. Whether or not I see an unusual species, each day of birding brings a new identification challenge or observed behavior. Even if I’ve seen 200 American Robins, I still haven’t seen that Robin.<br><br>
+        </p>
+
+    </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="./static/modal.js"></script>
+{% endblock %}
