@@ -132,6 +132,11 @@ body > div:nth-child(1) > div {
     padding-left: 100px;
 }
 
+.myImg_vol {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
