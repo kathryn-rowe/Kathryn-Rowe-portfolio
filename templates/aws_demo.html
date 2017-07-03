@@ -18,12 +18,22 @@
     <div class="row" id="photo-row">
 
         <i>Tags: Python, Flask, PostgreSQL, Ubuntu, Apache, EC2, RDS</i><br><br>
+        <i>TOC: <a href="#background">Background</a>, 
+                <a href="#get_started">Getting Started</a>, 
+                <a href="#aws_account">Setting Up an AWS Account</a>, 
+                <a href="#ec2_instance">Setting-up an EC2 Instance</a>, 
+                <a href="#rds_instance">Setting-up a RDS Instance</a>, 
+                <a href="#debug">Debugging Tips</a></i>
+
+        <h3 id="background">Background</h3>
 
         <p>During Hackbright Academy’s rigorous software engineering fellowship, I learned about full-stack web application development (Python-focused) in six weeks and then built a web app, <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a>, in just 4 weeks.<br><br>
 
         What I was able to accomplish in just 4 short weeks left me pretty excited, so naturally I wanted to get it up on the interwebs.<br><br>
 
         Similar to the development of my project, the process of deploying to Amazon Web Services was new, confusing, and quick. I learned a lot about web servers, porting, and a many other tricky AWS acronyms and, with the help of AWS support, I tackled the idea of what “deploying to AWS” meant within one week.<br><br>
+
+        If you want to learn about deploying a Python-Flask-PostgreSQL app via Heroku, visit my friend Joanne's <a href="https://jttyeung.github.io/2017/06/30/deploying-to-heroku-and-the-database-migration-nightmare.html?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B3AwUswvRSz6ZD1ZCDJnsmA%3D%3D">documentation</a>.<br><br>
 
         I’m fortunate to live in the Bay Area which lends itself to many tech-related opportunities and resources. When I was overwhelmed by the amount of services AWS provides, I decided to visit the AWS SF Pop-up Loft. SO thankful I did. The crew patiently answered my questions and provided excellent advice. THANK YOU!<br><br>
 
@@ -34,7 +44,7 @@
 
         <p>I chose EC2 and RDS because 1. I had a database (RDS), 2. I wanted to learn about AWS, not just deploy something quickly (eliminates Elastic Beanstalk), and 3. I wanted to be able to scale the project up. <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a> currently has only one year of data due the limitations of my personal computer. Now that I have an online database, I’d like to expand my project.<br><br>
 
-        <h3>Getting started</h3>
+        <h3 id="get_started">Getting Started</h3>
 
         My project is a Python – Flask app that queries data in a PostgreSQL database using SQLAlchemy. You can check it out on <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds">GitHub</a>, but here is the line-up:<br></p>
 
@@ -61,17 +71,17 @@
         ----------sparrow.jpg<br>
         </div><br>
 
-        <p><h3>Setting up an AWS account</h3>
+        <p><h3 id="aws_account">Setting Up an AWS Account</h3>
 
         First, you’ll need to set-up EC2 and RDS instances. From my understanding, they are instances because they’re not really anything, yet. For lack of a better word, they’re a base for where you can install what you need. For EC2, I chose Ubuntu with Apache and a PostgreSQL database on RDS.<br><br>
 
-        <h3>Setting-up an EC2 instance</h3>
+        <h3 id="ec2_instance">Setting-up an EC2 Instance</h3>
 
         Check out this <a href="http://amunategui.github.io/idea-to-pitch/">blog</a> on how to set-up an EC2. It’s fantastic and has a YouTube video. I installed Ubuntu 16.04 and chose the “free tier” options.<br><br>
 
         I’ll pick up again once you hit the <i>Installing Apache & Flask on EC2.</i><br><br>
 
-        <h3>Setting-up a RDS instance</h3>
+        <h3 id="rds_instance">Setting-up a RDS Instance</h3>
 
         <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped tremendously (ugh, I hate that word now). I’d follow along with their instructions (fyi I chose all “free tier” options) until your reach this page (Figure 2):</p><br><br>
 
@@ -286,7 +296,7 @@
 
         <p>Ok, everything should be set-up now. Try typing the public IP in a browser and see what happens.<br>
 
-        <h3>Debugging Tips</h3>
+        <h3 id="debug">Debugging Tips</h3>
         If you get errors, nothing shows up, or it’s just a generic Apache website, try these debugging tips:<br>
         <ul>
             <li>Open the error log and see what it says:</li>
