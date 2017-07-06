@@ -24,6 +24,7 @@
                 <a href="#ec2_instance">Setting-up an EC2 Instance</a>, 
                 <a href="#rds_instance">Setting-up a RDS Instance</a>, 
                 <a href="#debug">Debugging Tips</a>, 
+                <a href="#elastic_ip">Elastic IP and Domain Name</a>, 
                 <a href="#https">HTTPS</a></i>
 
         <h3 id="background">Background</h3>
@@ -223,8 +224,8 @@
         ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano /etc/apache2/sites-available/TellMeAboutTheBirds.conf</b>
         </div>
 
-        <div class="note">
-        &#10043; if you do not have a domain name set-up through AWS, enter the IPv4 Public IP. Once you get a domain name set up, chance the public IPv4 to the domain name. This was not clearly explained and I almost lost it when I got an elastic ip and then a domain name through AWS’s Route53. The old IPv4 Public IP didn’t load and the new IP went to a generic Apache website. I thought I lost everything! I finally thought back on a previous Certbot workshop and remembered that I needed to change this config file to the correct domain name.
+        <div class="note" id="change_config">
+        &#10043; if you do not have a domain name set-up through AWS, enter the IPv4 Public IP. Once you get a <a href="#elastic_ip">domain name set up</a>, change the public IPv4 to the domain name. This was not clearly explained and I almost lost my mind when I got an elastic ip and then a domain name through AWS’s Route53. The old IPv4 Public IP didn’t load and the new IP went to a generic Apache website. I thought I lost everything! I finally thought back on a previous Certbot workshop and remembered that I needed to change this config file to the correct domain name.
         </div>
 
         <p>Here is what my config file looked like:</p>
@@ -233,8 +234,8 @@
             <pre>
             &lt;VirtualHost *:80&gt;<br>
                     ServerName 52.25.54.241<br>
-                    # ServerName tellmeaboutthebirds.com<br>
-                    # ServerAlias www.tellmeaboutthebirds.com<br>
+                    # ServerName tellmeaboutthebirds.com //once you have a domain name set-up, make this the server name!<br>
+                    # ServerAlias www.tellmeaboutthebirds.com //once you have a domain name set-up, make this the server alias!<br>
                     ServerAdmin kjrowe06@gmail.com<br>
                     WSGIScriptAlias / /var/www/FlaskApps/FlaskApps.wsgi<br>
                     &lt;Directory /var/www/FlaskApps/ TellMeAboutTheBirds /&gt;<br>
@@ -328,24 +329,33 @@
             </li>
         </ul>
 
+        <h3 id="elastic_ip">Elastic IP and Domain Name</h3>
+
+        <p>I also went through the process of setting up an Elastic IP and then a domain name via AWS' Route 53.</p>
+
+        <img class="myImg" border="0" src="./static/images/route_53.jpg" alt="aws route 53" width="40%"><br>
+        Figure 7. Route 53 Configuration<br><br>
+
+        <p>Just remember to <a href="#change_config">change</a> the config file any time you change the IP address or domain name!</p>
+
         <h3 id="https">HTTPS</h3>
 
         <p>I recently attended a workshop hosted by <a href="https://www.eff.org/">EFF</a> and knew going into this project that I wanted to try to make my website secure. The <a href="https://certbot.eff.org/">Certbot</a> process is generally straight forward. I ran into a few firewall issues that I found difficult to solve, but luckily Brad at EFF was INCREDIBLY helpful!</p><br><br>
 
         <img class="myImg" border="0" src="./static/images/certbot_error.jpg" alt="certbot error" width="40%"><br>
-        Figure 6. This is the error I continued to get.<br><br>
+        Figure 6. Certbot Timeout Error<br><br>
 
-        <p>Here are a few trouble-shooting steps I took:</p><br><br>
+        <p>Here are a few trouble-shooting steps I took:</p>
 
         <ul>
-            <li>Check out the firewalls established on the server using this <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04">DigitalOcean tutorial</a>.</li>
-            <li>Make sure your <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">AWS Security Group</a> associated with your EC2 instance has correct inbound rules (this is where I had problems!).</li>
+            <li>Check out the firewalls established on your server using this <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04">DigitalOcean tutorial</a>.</li>
+            <li>Make sure your <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">AWS Security Group</a> associated with your EC2 instance has correct inbound rules (this is where I had problems!).</li><br><br>
         </ul>
 
         <img class="myImg" border="0" src="./static/images/security_inbound.jpg" alt="aws security group inbound" width="40%"><br>
-        Figure 7. AWS Security Group Inbound Rules<br><br>
+        Figure 7. AWS Security Group Inbound Rules for HTTPS<br><br><br><br>
 
-        <p>I also went through the process of setting up an Elastic IP and then a domain name through AWS. Just remember to change the config file any time you change the IP address or domain name!<br><br>
+        
 
         I’m open to comments and/or suggestions! <a href="mailto:kjrowe06@gmail.com">kjrowe06@gmail.com</a><br><br>
 
