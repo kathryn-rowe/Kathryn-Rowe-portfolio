@@ -197,3 +197,7 @@ body > div:nth-child(1) > div {
         width: 100%;
     }
 }
+
+.caption {
+    padding-left: 100px;
+}

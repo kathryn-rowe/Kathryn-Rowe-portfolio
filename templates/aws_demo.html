@@ -42,7 +42,7 @@
         There are so many different options to deploying “stuff” on AWS, and I definitely cannot explain all the options (Figure 1).</p>
         
         <img class="myImg" border="0" src="./static/images/aws_products.jpg" alt="amazon_products" width="40%"><br>
-        Figure 1.<br><br>
+        <p class="caption">Figure 1.</p><br><br>
 
         <p>I chose EC2 and RDS because 1. I had a database (RDS), 2. I wanted to learn about AWS, not just deploy something quickly (eliminates Elastic Beanstalk), and 3. I wanted to be able to scale the project up. <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a> currently has only one year of data due the limitations of my personal computer. Now that I have an online database, I’d like to expand my project.<br><br>
 
@@ -88,7 +88,7 @@
         <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped tremendously (ugh, I hate that word now). I’d follow along with their instructions (fyi I chose all “free tier” options) until your reach this page (Figure 2):</p><br><br>
 
         <img class="myImg" border="0" src="./static/images/rds_db_instance.jpg" alt="rds_db_instance" width="40%"><br>
-        Figure 2.<br><br>
+        <p class="caption">Figure 2.</p><br><br>
         
         <p>Once I had this set-up, I was unclear how to get the database on my computer up into this instance. Thanks to <a href="https://www.linkedin.com/in/lpnotes/">Linda Peng</a> and AWS pop-up lab help desk for clarifying that I needed to do a pgdump.<br><br>
 
@@ -129,7 +129,7 @@
         If you visit <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds/blob/master/model.py">my github page</a> again and navigate to model.py, I have a postgres db connection at the bottom (Figure 3):</p><br>
 
         <img class="myImg" border="0" src="./static/images/github_db_connection.jpg" alt="github_db_connection" width="40%"><br>
-        Figure 3. <br><br>
+        <p class="caption">Figure 3.</p><br><br>
 
         <p>See how I commented out the connection from my local database, and then add the connection to the remote database (and no, the-password is not my password):</p>
 
@@ -141,7 +141,7 @@
         <p>From my console, I could then run my app locally like I always have and it should connect to the remote database, right? (&#10043; I run my app locally on a vagrant Ubuntu machine)</p><br>
 
         <img class="myImg" border="0" src="./static/images/locally_run_vagrant.jpg" alt="locally_run_vagrant" width="40%"><br><br>
-        Figure 4.<br><br>
+        <p class="caption">Figure 4.</p><br><br>
 
         <p>Yessssss it works and queries my database in the clouds (hard to tell with all those deprecated warnings).<br><br>
         Ok, so now I have a RDS instance with data and an EC2 instance without data. What now?<br><br>
@@ -151,7 +151,7 @@
         After logging into my Ubuntu instance via Putty (I run Windows), here’s my mashup of what they did (Figure 5):</p><br>
         
         <img class="myImg" border="0" src="./static/images/ubuntu_basic.jpg" alt="Ubuntu_basic" width="40%"><br>
-        Figure 5.<br><br>
+        <p class="caption">Figure 5.</p><br><br>
 
         <div class="code">
         ubuntu@ip-10-0-0-160:~$ <b>sudo apt-get update</b><br>
@@ -334,7 +334,7 @@
         <p>I also went through the process of setting up an Elastic IP and then a domain name via AWS' Route 53.</p>
 
         <img class="myImg" border="0" src="./static/images/route_53.jpg" alt="aws route 53" width="40%"><br>
-        Figure 6. Route 53 Configuration<br><br>
+        <p class="caption">Figure 6. Route 53 Configuration</p><br><br>
 
         <p>Just remember to <a href="#change_config">change</a> the config file any time you change the IP address or domain name!</p>
 
@@ -343,7 +343,7 @@
         <p>I recently attended a workshop hosted by <a href="https://www.eff.org/">EFF</a> and knew going into this project that I wanted to try to make my website secure. The <a href="https://certbot.eff.org/">Certbot</a> process is generally straight forward. I ran into a few firewall issues that I found difficult to solve, but luckily Brad at EFF was INCREDIBLY helpful!</p><br><br>
 
         <img class="myImg" border="0" src="./static/images/certbot_error.jpg" alt="certbot error" width="40%"><br>
-        Figure 7. Certbot Timeout Error<br><br>
+        <p class="caption">Figure 7. Certbot Timeout Error</p><br><br>
 
         <p>Here are a few trouble-shooting steps I took:</p>
 
@@ -353,7 +353,7 @@
         </ul>
 
         <img class="myImg" border="0" src="./static/images/security_inbound.jpg" alt="aws security group inbound" width="40%"><br>
-        Figure 8. AWS Security Group Inbound Rules for HTTPS<br><br><br><br>
+        <p class="caption">Figure 8. AWS Security Group Inbound Rules for HTTPS</p><br><br><br><br>
 
         
 
