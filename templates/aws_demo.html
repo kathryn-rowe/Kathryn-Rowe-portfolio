@@ -23,7 +23,8 @@
                 <a href="#aws_account">Setting Up an AWS Account</a>, 
                 <a href="#ec2_instance">Setting-up an EC2 Instance</a>, 
                 <a href="#rds_instance">Setting-up a RDS Instance</a>, 
-                <a href="#debug">Debugging Tips</a></i>
+                <a href="#debug">Debugging Tips</a>, 
+                <a href="#https">HTTPS</a></i>
 
         <h3 id="background">Background</h3>
 
@@ -294,10 +295,10 @@
         ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo /etc/init.d/apache2 reload</b>
         </div>
 
-        <p>Ok, everything should be set-up now. Try typing the public IP in a browser and see what happens.<br>
+        <p>Ok, everything should be set-up now. Try typing the public IP in a browser and see what happens.</p><br>
 
         <h3 id="debug">Debugging Tips</h3>
-        If you get errors, nothing shows up, or it’s just a generic Apache website, try these debugging tips:<br>
+        <p>If you get errors, nothing shows up, or it’s just a generic Apache website, try these debugging tips:</p><br>
         <ul>
             <li>Open the error log and see what it says:</li>
 
@@ -327,13 +328,28 @@
             </li>
         </ul>
 
-        And that should be it!<br><br>
+        <h3 id="https">HTTPS</h3>
 
-        I also went through the process of setting up an Elastic IP and then a domain name through AWS. Just remember to change the config file any time you change the IP address or domain name!<br><br>
+        <p>I recently attended a workshop hosted by <a href="https://www.eff.org/">EFF</a> and knew going into this project that I wanted to try to make my website secure. The <a href="https://certbot.eff.org/">Certbot</a> process is generally straight forward. I ran into a few firewall issues that I found difficult to solve, but luckily Brad at EFF was INCREDIBLY helpful!</p><br><br>
+
+        <img class="myImg" border="0" src="./static/images/certbot_error.jpg" alt="certbot error" width="40%"><br>
+        Figure 6. This is the error I continued to get.<br><br>
+
+        <p>Here are a few trouble-shooting steps I took:</p><br><br>
+
+        <ul>
+            <li>Check out the firewalls established on the server using this <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04">DigitalOcean tutorial</a>.</li>
+            <li>Make sure your <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">AWS Security Group</a> associated with your EC2 instance has correct inbound rules (this is where I had problems!).</li>
+        </ul>
+
+        <img class="myImg" border="0" src="./static/images/security_inbound.jpg" alt="aws security group inbound" width="40%"><br>
+        Figure 7. AWS Security Group Inbound Rules<br><br>
+
+        <p>I also went through the process of setting up an Elastic IP and then a domain name through AWS. Just remember to change the config file any time you change the IP address or domain name!<br><br>
 
         I’m open to comments and/or suggestions! <a href="mailto:kjrowe06@gmail.com">kjrowe06@gmail.com</a><br><br>
 
-        Thanks and good luck!
+        Thanks and good luck!</p>
 
     </div>
 
