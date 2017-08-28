@@ -1,0 +1,10 @@
+env/
+secret*
+seed_data/
+*.pyc
+save/
+unused_files/
+static/images/soon_to_use/
+templates/analyticstracking.php
+change_name.sh
+templates/owls.html
