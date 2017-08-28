@@ -15,6 +15,13 @@ Clone repository:
 ```sh
 $ git clone https://github.com/kathryn-rowe/Kathryn-Rowe-portfolio.git
 ```
+Move into folder and create vagrant machine.
+
+```sh
+$ cd Kathryn-Rowe-portfolio
+$ vagrant up
+$ vagrant ssh
+```
 Create virtual environment:
 
 ```sh
