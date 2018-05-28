@@ -85,7 +85,7 @@
 
         <h3 id="rds_instance">Setting-up a RDS Instance</h3>
 
-        <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped tremendously (ugh, I hate that word now). I’d follow along with their instructions (fyi I chose all “free tier” options) until your reach this page (Figure 2):</p><br><br>
+        <a href="https://aws.amazon.com/getting-started/tutorials/create-connect-postgresql-db/">Amazon</a> has great documentation about setting-up databases. The people at the pop-up loft also helped a lot. I’d follow along with their instructions (fyi I chose all “free tier” options) until your reach this page (Figure 2):</p><br><br>
 
         <img class="myImg" border="0" src="./static/images/rds_db_instance.jpg" alt="rds_db_instance" width="40%"><br>
         <p class="caption">Figure 2.</p><br><br>
@@ -148,7 +148,7 @@
         Apache.<br><br>
         This was a hard concept for me to grasp without talking with the great guys at AWS: you can’t just put python files on Ubuntu and expect them to run. You have to set-up a web server and configure everything correctly.<br><br>
         For the Ubuntu-Apache set-up, I relied heavily on the <a href="http://amunategui.github.io/idea-to-pitch/">blog</a> I mentioned earlier and <a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps">DigitalOcean’s docs</a>, which I found to be very helpful.<br><br>
-        After logging into my Ubuntu instance via Putty (I run Windows), here’s my mashup of what they did (Figure 5):</p><br>
+        After logging into my Ubuntu instance via Putty (I have a Windows machine), here’s my mashup of what they did (Figure 5):</p><br>
         
         <img class="myImg" border="0" src="./static/images/ubuntu_basic.jpg" alt="Ubuntu_basic" width="40%"><br>
         <p class="caption">Figure 5.</p><br><br>
@@ -166,24 +166,15 @@
         </div>
 
         <div class="note">
-        &#10043; I’m almost 100% sure there is a way to install git and then do a git clone from an online repository. I, however, chose to work my way through the set-up and copy-paste the contents of my project.
+        &#10043; Next step is to git clone your project.
         </div>
 
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo mkdir static templates</b><br>
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano server.py</b>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>git clone *insert project repository*</b>
         </div>
-
-        <p>Copy and paste your server.py contents from your computer’s editor to the file opened by nano (and yes, nano is awful). Crtl-X to save and exit.</p><br>
-
-        <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano requirements.txt</b>
-        </div>
-
-        <p>Copy and paste your requirements.txt contents. Crtl-X to save and exit.<br>
 
         <div class="code">    
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano secret_key.py</b>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo vim secret_key.py</b>
         </div>
 
         <p>Copy and paste your secret_key.py contents. Crtl-X to save and exit.</p>
@@ -221,7 +212,7 @@
         <p>Editing the conf file:</p>
         
         <div class="code">
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano /etc/apache2/sites-available/TellMeAboutTheBirds.conf</b>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo vim /etc/apache2/sites-available/TellMeAboutTheBirds.conf</b>
         </div>
 
         <div class="note" id="change_config">
@@ -273,7 +264,7 @@
         </div>
 
         <div class="code">        
-        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano /var/www/FlaskApps/FlaskApps.wsgi</b>
+        ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo vim /var/www/FlaskApps/FlaskApps.wsgi</b>
         </div>
 
         <div class="code">
@@ -304,7 +295,7 @@
             <li>Open the error log and see what it says:</li>
 
                 <div class="code">
-                ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo nano /var/log/apache2/error.log</b>
+                ubuntu@ip-10-0-0-160:/var/www/FlaskApp/TellMeAboutTheBirds$ <b>sudo vim /var/log/apache2/error.log</b>
                 </div>
 
             <li>In your browser, right click and select “Inspect.” Watch for errors as your run your process.</li>
@@ -336,7 +327,7 @@
         <img class="myImg" border="0" src="./static/images/route_53.jpg" alt="aws route 53" width="40%"><br>
         <p class="caption">Figure 6. Route 53 Configuration</p><br><br>
 
-        <p>Just remember to <a href="#change_config">change</a> the config file any time you change the IP address or domain name!</p>
+        <p>Just remember to <a href="#change_config">change</a> the config file any time you change the IP address or domain name.</p>
 
         <h3 id="https">HTTPS</h3>
 
