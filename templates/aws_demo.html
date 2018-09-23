@@ -16,7 +16,7 @@
     </div>
 
     <div class="row" id="photo-row">
-
+        <i>Update Sept. 23, 2018 www.tellmeaboutthebirds.com is no longer in production.</i><br><br>
         <i>Tags: Python, Flask, PostgreSQL, Ubuntu, Apache, EC2, RDS</i><br><br>
         <i>TOC: <a href="#background">Background</a>, 
                 <a href="#get_started">Getting Started</a>, 
@@ -29,26 +29,24 @@
 
         <h3 id="background">Background</h3>
 
-        <p>During Hackbright Academy’s rigorous software engineering fellowship, I learned about full-stack web application development (Python-focused) in six weeks and then built a web app, <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a>, in just 4 weeks.<br><br>
+        <p>During Hackbright Academy’s rigorous software engineering fellowship, I learned about full-stack web application development (Python-focused) in six weeks and then built a web app, <b>Tell Me About the Birds</b>, in just 4 weeks.<br><br>
 
-        What I was able to accomplish in just 4 short weeks left me pretty excited, so naturally I wanted to get it up on the interwebs.<br><br>
-
-        Similar to the development of my project, the process of deploying to Amazon Web Services was new, confusing, and quick. I learned a lot about web servers, porting, and a many other tricky AWS acronyms and, with the help of AWS support, I tackled the idea of what “deploying to AWS” meant within one week.<br><br>
+        Similar to the development of my project, the process of deploying to Amazon Web Services was new, confusing, and quick. I learned a lot about web servers, porting, many confusing AWS acronyms and, with the help of AWS support, I tackled the concept of “deploying to AWS”.<br><br>
 
         If you want to learn about deploying a Python-Flask-PostgreSQL app via Heroku, visit my friend Joanne's <a href="https://jttyeung.github.io/2017/06/30/deploying-to-heroku-and-the-database-migration-nightmare.html?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B3AwUswvRSz6ZD1ZCDJnsmA%3D%3D">documentation</a>.<br><br>
 
-        I’m fortunate to live in the Bay Area which lends itself to many tech-related opportunities and resources. When I was overwhelmed by the amount of services AWS provides, I decided to visit the AWS SF Pop-up Loft. SO thankful I did. The crew patiently answered my questions and provided excellent advice. THANK YOU!<br><br>
+        I’m fortunate to live in the Bay Area where I can easily find many tech-related opportunities and resources. When I was overwhelmed by the amount of services AWS provides, I decided to visit the AWS SF Pop-up Loft. SO thankful I did. The crew patiently answered my questions and provided excellent advice.<br><br>
 
         There are so many different options to deploying “stuff” on AWS, and I definitely cannot explain all the options (Figure 1).</p>
         
         <img class="myImg" border="0" src="./static/images/aws_products.jpg" alt="amazon_products" width="40%"><br>
         <p class="caption">Figure 1.</p><br><br>
 
-        <p>I chose EC2 and RDS because 1. I had a database (RDS), 2. I wanted to learn about AWS, not just deploy something quickly (eliminates Elastic Beanstalk), and 3. I wanted to be able to scale the project up. <a href="http://tellmeaboutthebirds.com">Tell Me About the Birds</a> currently has only one year of data due the limitations of my personal computer. Now that I have an online database, I’d like to expand my project.<br><br>
+        <p>I chose EC2 and RDS because 1. I had a database (RDS), 2. I wanted to learn about AWS, not just deploy something quickly (eliminates Elastic Beanstalk), and 3. I wanted to be able to scale the project up. <b>Tell Me About the Birds</b> only contained one year of data due the space limitations of my personal computer. Now that I have access to a database in the cloud, I’d like to expand my project.<br><br>
 
         <h3 id="get_started">Getting Started</h3>
 
-        My project is a Python – Flask app that queries data in a PostgreSQL database using SQLAlchemy. You can check it out on <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds">GitHub</a>, but here is the line-up:<br></p>
+        My project is a Python – Flask app that queries data in a PostgreSQL database using SQLAlchemy. You can check it out on <a href="https://github.com/kathryn-rowe/Tell-Me-About-the-Birds">GitHub</a>, but here is the directory line-up:<br></p>
 
         <div class="code">
         server.py<br>
@@ -143,7 +141,7 @@
         <img class="myImg" border="0" src="./static/images/locally_run_vagrant.jpg" alt="locally_run_vagrant" width="40%"><br><br>
         <p class="caption">Figure 4.</p><br><br>
 
-        <p>Yessssss it works and queries my database in the clouds (hard to tell with all those deprecated warnings).<br><br>
+        <p>Yessssss it works and queries my remote database (hard to tell with all those deprecated warnings).<br><br>
         Ok, so now I have a RDS instance with data and an EC2 instance without data. What now?<br><br>
         Apache.<br><br>
         This was a hard concept for me to grasp without talking with the great guys at AWS: you can’t just put python files on Ubuntu and expect them to run. You have to set-up a web server and configure everything correctly.<br><br>
