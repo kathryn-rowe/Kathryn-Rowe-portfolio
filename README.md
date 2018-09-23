@@ -1,13 +1,5 @@
 # Kathryn Rowe's Portfolio
 
-# Technical Skills
-
-Python (Flask, Django), JavaScript (AJAX, JSON, jQuery), HTML, CSS, Bootstrap, SQL (PostgreSQL, MySQL), ORM (SQLAlchemy, GeoAlchemy), Git/Github, Bash scripting, Tests (TDD, Unit, Integration, Jasmine), D3, Vagrant, Heroku, AWS, Drupal
-
-Geospatial: ArcGIS, QGIS, OSM, Mapbox, Leaflet 
-
-Design: Adobe Creative Suite, Cartography
-
 ### Setup/Installation
 
 Customize for own portfolio; install requirements to run locally.
