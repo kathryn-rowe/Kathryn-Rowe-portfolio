@@ -19,15 +19,19 @@ $ vagrant ssh
 Create virtual environment:
 
 ```sh
-$ virtualenv env
+$ virtualenv venv
 ```
 Activate virtual environment:
 ```sh
-$ source env/bin/activate
+$ source venv/bin/activate
 ```
 Install dependencies:
 ```sh
-$ pip install -r requirements.txt
+(venv)$ pip3 install -r requirements.txt
+```
+Run app:
+```sh
+(venv)$ python3 server.py
 ```
 Gather necessary secret keys from Flask. Save to your secrets file. Link to server.py.
 
