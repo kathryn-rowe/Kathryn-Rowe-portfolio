@@ -4,35 +4,29 @@
 
 Customize for own portfolio; install requirements to run locally.
 
-Clone repository:
+Clone repository.
+
+Move into folder and create virtual environment:
 
 ```sh
-$ git clone https://github.com/kathryn-rowe/Kathryn-Rowe-portfolio.git
+$ python3 -m venv env
 ```
-Move into folder and create vagrant machine.
 
-```sh
-$ cd Kathryn-Rowe-portfolio
-$ vagrant up
-$ vagrant ssh
-```
-Create virtual environment:
-
-```sh
-$ virtualenv venv
-```
 Activate virtual environment:
 ```sh
-$ source venv/bin/activate
+$ source env/bin/activate
 ```
+
 Install dependencies:
 ```sh
 (venv)$ pip3 install -r requirements.txt
 ```
+
 Run app:
 ```sh
 (venv)$ python3 server.py
 ```
+
 Gather necessary secret keys from Flask. Save to your secrets file. Link to server.py.
 
 Create database if you want to password protect your portfolio:
@@ -41,7 +35,7 @@ Create database if you want to password protect your portfolio:
 $ createdb users
 ```
 ```sh
-$ python -i model.py
+$ python3 -i model.py
 ```
 ```sh
 >>>db.create_all() 
